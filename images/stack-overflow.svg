@@ -1,0 +1,68 @@
+<svg viewBox="0 0 720 295" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="720" height="295" rx="8" fill="#0d0d0d"/>
+
+  <!-- Titles -->
+  <text x="117" y="30"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="12" fill="#9aa5ce">Before overflow</text>
+  <text x="372" y="30"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="12" fill="#9aa5ce">After feeding 100 × 'A'</text>
+
+  <!-- Left box: x=15, y=50, w=205, h=210 -->
+  <!-- Rows: 50–120 | 120–190 | 190–260 -->
+  <rect x="15" y="50" width="205" height="210" fill="none" stroke="#7aa2f7" stroke-width="1.5"/>
+  <line x1="15" y1="120" x2="220" y2="120" stroke="#7aa2f7" stroke-width="1.5"/>
+  <line x1="15" y1="190" x2="220" y2="190" stroke="#7aa2f7" stroke-width="1.5"/>
+
+  <!-- Left box cell labels -->
+  <text x="117" y="85"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="13" fill="#c0caf5">return address</text>
+  <text x="117" y="155"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="13" fill="#c0caf5">saved frame ptr</text>
+  <text x="117" y="225"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="13" fill="#c0caf5">char buf[40]</text>
+
+  <!-- Right box: x=270, y=50, w=205, h=210 -->
+  <rect x="270" y="50" width="205" height="210" fill="none" stroke="#7aa2f7" stroke-width="1.5"/>
+  <line x1="270" y1="120" x2="475" y2="120" stroke="#7aa2f7" stroke-width="1.5"/>
+  <line x1="270" y1="190" x2="475" y2="190" stroke="#7aa2f7" stroke-width="1.5"/>
+
+  <!-- Right box cell content (corrupted values in red, buffer content normal) -->
+  <text x="372" y="85"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="13" fill="#f7768e">0x41414141</text>
+  <text x="372" y="155"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="13" fill="#f7768e">0x41414141</text>
+  <!-- Buffer flooded with A's (3 lines, centered at y=225) -->
+  <text x="372" y="207"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="13" fill="#c0caf5">AAAAAAAAAAAAAAAAAAA</text>
+  <text x="372" y="225"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="13" fill="#c0caf5">AAAAAAAAAAAAAAAAAAA</text>
+  <text x="372" y="243"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="13" fill="#c0caf5">AAAAAAAAAAAAAAAAAAA</text>
+
+  <!-- Annotation: aligned with row 1 center of right box -->
+  <text x="490" y="85"
+        dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="12" fill="#7dcfff">← CPU jumps here</text>
+</svg>

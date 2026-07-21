@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff3cf"/>
+      <stop offset="100%" stop-color="#f5df9f"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a9d5ff"/>
+      <stop offset="100%" stop-color="#73b7f2"/>
+    </linearGradient>
+    <linearGradient id="bridge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe47a"/>
+      <stop offset="100%" stop-color="#e7b92f"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+
+    <style>
+      .land { fill:url(#land); stroke:#8f7b3f; stroke-width:2; }
+      .water { fill:url(#water); }
+      .bridge-body { fill:url(#bridge); stroke:#7a5600; stroke-width:3; }
+      .bridge-cap { fill:#f7e4a8; stroke:#7a5600; stroke-width:2; }
+      .label { font-family:Arial, Helvetica, sans-serif; font-size:42px; font-weight:700; fill:#111; }
+      .bridge-label { font-family:Arial, Helvetica, sans-serif; font-size:34px; font-weight:700; fill:#111; text-anchor:middle; dominant-baseline:middle; }
+      .node-fill { fill:#fff0c4; }
+      .edge-halo { fill:none; stroke:#fff; stroke-width:12; stroke-linecap:round; stroke-linejoin:round; }
+      .edge-main { fill:none; stroke:#111; stroke-width:5; stroke-linecap:round; stroke-linejoin:round; }
+      .node-halo { fill:#fff; stroke:#fff; stroke-width:10; }
+      .node-main { fill:#fff0c4; stroke:#111; stroke-width:5; }
+      .graph-label {
+        font-family:Arial, Helvetica, sans-serif;
+        font-size:34px;
+        font-weight:700;
+        fill:#111;
+        paint-order:stroke;
+        stroke:#fff;
+        stroke-width:8px;
+        stroke-linejoin:round;
+      }
+      .vertex-label {
+        font-family:Arial, Helvetica, sans-serif;
+        font-size:36px;
+        font-weight:700;
+        fill:#111;
+        text-anchor:middle;
+        dominant-baseline:middle;
+      }
+    </style>
+  </defs>
+
+  <!-- Transparent background -->
+
+  <!-- LEFT MAP -->
+  <g id="map" transform="translate(40,40)">
+    <!-- water base -->
+    <rect x="0" y="0" width="960" height="760" rx="20" class="water"/>
+
+    <!-- Land A: flat top edge -->
+    <path class="land" d="M0,0 H960 V180
+      C840,205 760,220 670,210
+      C560,195 470,175 360,185
+      C235,197 130,225 0,205 Z"/>
+
+    <!-- Land B: flat bottom edge -->
+    <path class="land" d="M0,575
+      C115,560 230,555 350,565
+      C490,577 600,552 700,560
+      C815,570 880,605 960,625
+      V760 H0 Z"/>
+
+    <!-- Central island C -->
+    <path class="land" d="M165,260
+      C220,215 330,210 450,225
+      C555,235 610,275 610,360
+      C610,445 540,485 425,495
+      C305,505 215,490 160,435
+      C115,390 115,305 165,260 Z"/>
+
+    <!-- Right land D -->
+    <path class="land" d="M705,240
+      C790,205 875,195 960,180
+      V625
+      C890,605 820,585 760,535
+      C700,485 665,435 675,350
+      C682,295 690,260 705,240 Z"/>
+
+    <!-- Bridges helper -->
+    <!-- 1 -->
+    <g transform="translate(270,235) rotate(-8)" filter="url(#softShadow)">
+      <rect x="-25" y="-55" width="50" height="110" rx="6" class="bridge-body"/>
+      <rect x="-30" y="-63" width="60" height="14" rx="3" class="bridge-cap"/>
+      <rect x="-30" y="49" width="60" height="14" rx="3" class="bridge-cap"/>
+      <text x="0" y="0" class="bridge-label">1</text>
+    </g>
+
+    <!-- 2, opposite curve/orientation -->
+    <g transform="translate(500,235) rotate(8)" filter="url(#softShadow)">
+      <rect x="-25" y="-55" width="50" height="110" rx="6" class="bridge-body"/>
+      <rect x="-30" y="-63" width="60" height="14" rx="3" class="bridge-cap"/>
+      <rect x="-30" y="49" width="60" height="14" rx="3" class="bridge-cap"/>
+      <text x="0" y="0" class="bridge-label">2</text>
+    </g>
+
+    <!-- 4 -->
+    <g transform="translate(780,220) rotate(-10)" filter="url(#softShadow)">
+      <rect x="-25" y="-55" width="50" height="110" rx="6" class="bridge-body"/>
+      <rect x="-30" y="-63" width="60" height="14" rx="3" class="bridge-cap"/>
+      <rect x="-30" y="49" width="60" height="14" rx="3" class="bridge-cap"/>
+      <text x="0" y="0" class="bridge-label">4</text>
+    </g>
+
+    <!-- 3 short -->
+    <g transform="translate(642,365)" filter="url(#softShadow)">
+      <rect x="-58" y="-24" width="116" height="48" rx="6" class="bridge-body"/>
+      <rect x="-66" y="-29" width="14" height="58" rx="3" class="bridge-cap"/>
+      <rect x="52" y="-29" width="14" height="58" rx="3" class="bridge-cap"/>
+      <text x="0" y="0" class="bridge-label">3</text>
+    </g>
+
+    <!-- 5 -->
+    <g transform="translate(275,520) rotate(8)" filter="url(#softShadow)">
+      <rect x="-25" y="-55" width="50" height="110" rx="6" class="bridge-body"/>
+      <rect x="-30" y="-63" width="60" height="14" rx="3" class="bridge-cap"/>
+      <rect x="-30" y="49" width="60" height="14" rx="3" class="bridge-cap"/>
+      <text x="0" y="0" class="bridge-label">5</text>
+    </g>
+
+    <!-- 6, opposite curve/orientation -->
+    <g transform="translate(500,520) rotate(-8)" filter="url(#softShadow)">
+      <rect x="-25" y="-55" width="50" height="110" rx="6" class="bridge-body"/>
+      <rect x="-30" y="-63" width="60" height="14" rx="3" class="bridge-cap"/>
+      <rect x="-30" y="49" width="60" height="14" rx="3" class="bridge-cap"/>
+      <text x="0" y="0" class="bridge-label">6</text>
+    </g>
+
+    <!-- 7 -->
+    <g transform="translate(800,535) rotate(20)" filter="url(#softShadow)">
+      <rect x="-25" y="-55" width="50" height="110" rx="6" class="bridge-body"/>
+      <rect x="-30" y="-63" width="60" height="14" rx="3" class="bridge-cap"/>
+      <rect x="-30" y="49" width="60" height="14" rx="3" class="bridge-cap"/>
+      <text x="0" y="0" class="bridge-label">7</text>
+    </g>
+
+    <text x="470" y="95" class="label">A</text>
+    <text x="395" y="370" class="label">C</text>
+    <text x="835" y="400" class="label">D</text>
+    <text x="430" y="690" class="label">B</text>
+  </g>
+
+  <!-- RIGHT GRAPH -->
+  <g id="graph" transform="translate(1040,70)">
+    <!-- Edges: halo then main -->
+    <!-- 1 and 2: symmetric arcs A-C -->
+    <path d="M250,90 C120,150 105,275 150,360" class="edge-halo"/>
+    <path d="M250,90 C120,150 105,275 150,360" class="edge-main"/>
+
+    <path d="M250,90 C300,160 270,280 150,360" class="edge-halo"/>
+    <path d="M250,90 C300,160 270,280 150,360" class="edge-main"/>
+
+    <!-- 4 A-D -->
+    <path d="M250,90 L470,360" class="edge-halo"/>
+    <path d="M250,90 L470,360" class="edge-main"/>
+
+    <!-- 3 C-D -->
+    <path d="M150,360 L470,360" class="edge-halo"/>
+    <path d="M150,360 L470,360" class="edge-main"/>
+
+    <!-- 5 and 6: symmetric arcs C-B -->
+    <path d="M150,360 C110,500 125,620 250,700" class="edge-halo"/>
+    <path d="M150,360 C110,500 125,620 250,700" class="edge-main"/>
+
+    <path d="M150,360 C270,450 300,580 250,700" class="edge-halo"/>
+    <path d="M150,360 C270,450 300,580 250,700" class="edge-main"/>
+
+    <!-- 7 B-D -->
+    <path d="M250,700 L470,360" class="edge-halo"/>
+    <path d="M250,700 L470,360" class="edge-main"/>
+
+    <!-- Nodes -->
+    <circle cx="250" cy="90" r="38" class="node-halo"/>
+    <circle cx="250" cy="90" r="34" class="node-main"/>
+    <circle cx="150" cy="360" r="38" class="node-halo"/>
+    <circle cx="150" cy="360" r="34" class="node-main"/>
+    <circle cx="470" cy="360" r="38" class="node-halo"/>
+    <circle cx="470" cy="360" r="34" class="node-main"/>
+    <circle cx="250" cy="700" r="38" class="node-halo"/>
+    <circle cx="250" cy="700" r="34" class="node-main"/>
+
+    <!-- Vertex labels -->
+    <text x="250" y="92" class="vertex-label">A</text>
+    <text x="150" y="362" class="vertex-label">C</text>
+    <text x="470" y="362" class="vertex-label">D</text>
+    <text x="250" y="702" class="vertex-label">B</text>
+
+    <!-- Edge labels with white outline for dark mode -->
+    <text x="110" y="215" class="graph-label">1</text>
+    <text x="275" y="220" class="graph-label">2</text>
+    <text x="360" y="330" class="graph-label">3</text>
+    <text x="390" y="200" class="graph-label">4</text>
+    <text x="105" y="535" class="graph-label">5</text>
+    <text x="292" y="535" class="graph-label">6</text>
+    <text x="390" y="560" class="graph-label">7</text>
+  </g>
+</svg>

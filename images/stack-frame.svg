@@ -1,0 +1,46 @@
+<svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="260" rx="8" fill="#0d0d0d"/>
+
+  <!-- Stack box: x=30, y=40, w=200, h=180 -->
+  <!-- Three rows: 40–100 | 100–160 | 160–220 -->
+  <rect x="30" y="40" width="200" height="180" fill="none" stroke="#7aa2f7" stroke-width="1.5"/>
+  <line x1="30" y1="100" x2="230" y2="100" stroke="#7aa2f7" stroke-width="1.5"/>
+  <line x1="30" y1="160" x2="230" y2="160" stroke="#7aa2f7" stroke-width="1.5"/>
+
+  <!-- Cell labels (centered in each row) -->
+  <text x="130" y="70"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="13" fill="#c0caf5">return address</text>
+  <text x="130" y="130"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="13" fill="#c0caf5">saved frame ptr</text>
+  <text x="130" y="190"
+        text-anchor="middle" dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="13" fill="#c0caf5">char buf[40]</text>
+
+  <!-- Annotations -->
+  <!-- Top border -->
+  <text x="248" y="40"
+        dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="12" fill="#7dcfff">← higher addresses</text>
+  <!-- Row 1 center -->
+  <text x="248" y="70"
+        dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="12" fill="#7dcfff">← where the CPU jumps when the function exits</text>
+  <!-- Row 3 center -->
+  <text x="248" y="190"
+        dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="12" fill="#7dcfff">← local buffer, 40 bytes</text>
+  <!-- Bottom border -->
+  <text x="248" y="220"
+        dominant-baseline="central"
+        font-family="'JetBrains Mono','Consolas','Courier New',monospace"
+        font-size="12" fill="#7dcfff">← lower addresses (stack grows downward)</text>
+</svg>
